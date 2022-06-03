@@ -66,7 +66,7 @@ double computeDistance(double s, double v, double a, double t)
 double computeAngle(double dx, double dy)
 {
    double newAngle =  atan2(dx, dy);
-   return newAngle;  -floor(newAngle / (2.00 * M_PI)) * (2.00 * M_PI);
+   return newAngle; // -floor(newAngle / (2.00 * M_PI)) * (2.00 * M_PI);
 }
 
 
@@ -120,8 +120,8 @@ int main()
    double acc;
    double dx = horizontalComp(v, angle);
    double dy = verticalComp(v, angle);
-   double ddy;
-   double ddx;
+   double ddy = 0.0;
+   double ddx = 0.0;
 
    int i = 0;
    while (y >= 0)
