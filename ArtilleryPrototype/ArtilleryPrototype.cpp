@@ -124,11 +124,11 @@ int main()
    double ddx = 0.0;
 
    int i = 0;
-   while (y >= 0)
+   while (i <= 100)
    {
 
-      p = tableLookUp(altitudeArray, densityArray, y);      // air density
-      vSound = tableLookUp(altitudeArray, soundArray, y);   // speed of sound
+      p = 1.225;// = tableLookUp(altitudeArray, densityArray, y);      // air density
+      vSound = 340;// tableLookUp(altitudeArray, soundArray, y);   // speed of sound
       vMach = v / vSound;                                   // Mach 
       c = tableLookUp(machArray, dragArray, vMach);         //linearInter(2.43235, 1.990, 0.2897, 2.870, 0.2297);
       force = dragForce(c, p, v, area);
@@ -136,11 +136,11 @@ int main()
       ddx = horizontalComp(-acc, angle);
       ddy = -tableLookUp(altitudeArray, gravityArray, y) + verticalComp(-acc, angle); // gravity = -9.807
       cout << "x: " << x << endl;
-      cout << "y: " << y << endl;
+     // cout << "y: " << y << endl;
       cout << "dx: " << dx << endl;
-      cout << "dy: " << dy << endl;
+      //cout << "dy: " << dy << endl;
       cout << "ddx: " << ddx << endl;
-      cout << "ddy: " << ddy << endl;
+      //cout << "ddy: " << ddy << endl;
       x = computeDistance(x, dx, ddx, t);
       y = computeDistance(y, dy, ddy, t);
       dx = computeVelocity(dx, ddx, t);
